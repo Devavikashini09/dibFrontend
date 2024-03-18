@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking System</title>
+    <link rel="stylesheet" href="account.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dib bank welcomes you</h1>
+        <button id="createAccountBtn" >Create Account by employee</button>
+        <h2>customer Table</h2>
+<div>
+<table id="customer">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Accountype</th>
+            <th>First_name</th>
+            <th>Last_name</th>
+            <th>Mobile_no</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Email</th>
+            <th>Date_of_birth</th>
+            <th>Customer_id</th>
+            <th>InitialBalance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Table body will be populated dynamically using JavaScript -->
+    </tbody>
+</table>
+        
+    </div>
+    <div>
+        <h1>Create Account</h1>
+    <form id="accountForm">
+        <label for="accountType">AccountNumber:</label>
+        <input type="number" id="accountnumber" name="accountType" required><br>
+
+        <label for="accountType">AccountType:</label>
+        <input type="text" id="accountType" name="type" required><br>
+
+        <label for="Balance">Balance:</label>
+        <input type="number" id="InitialBalance" name="Balance" required><br>
+
+        <label for="Balance">OpeningDate:</label>
+        <input type="date" id="OpeningDate" name="date" required><br>
+
+
+        <!-- Add more input fields as needed -->
+
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+    
+    <script src="account.js"></script>
+</body>
+</html>

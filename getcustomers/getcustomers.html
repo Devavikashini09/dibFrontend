@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Details</title>
+</head>
+<body>
+  <h2>Customer Details</h2>
+  <table id="customerTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Account Type</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Mobile Number</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Email</th>
+        <th>Date of Birth</th>
+        <th>Customer ID</th>
+        <th>Initial Balance</th>
+        <th>Select</th>
+      </tr>
+    </thead>
+    <tbody id="customerBody">
+    </tbody>
+  </table>
+
+<script>
+document.getElementById("customerTable").addEventListener('click', function getCustomerData() {
+    fetch('http://localhost:9090/customers', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(msg => populateTable(msg));
+
+    function populateTable(msg) {
+        const tbody = document.getElementById('customerBody');
+        tbody.innerHTML = ''; // Clear existing rows
+
+        msg.forEach(customer => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${customer.id}</td>
+                <td>${customer.accountType}</td>    
+                <td>${customer.first_name}</td>
+                <td>${customer.last_name}</td>    
+                <td>${customer.mobile_no}</td>    
+                <td>${customer.gender}</td>    
+                <td>${customer.address}</td>    
+                <td>${customer.city}</td>    
+                <td>${customer.state}</td>    
+                <td>${customer.country}</td>    
+                <td>${customer.email}</td>    
+                <td>${customer.date_of_birth}</td>    
+                <td>${customer.customer_id}</td>   
+                <td>${customer.initial_balance}</td>     
+            `;
+            const selectColumn = document.createElement('td');
+            selectColumn.textContent = "select";
+            row.appendChild(selectColumn);
+            tbody.appendChild(row);
+        });
+    }
+});
+</script>
+</body>
+</html>
